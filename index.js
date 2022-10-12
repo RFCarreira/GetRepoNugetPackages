@@ -4,7 +4,13 @@ import { context } from '@actions/github';
 try {
   // `who-to-greet` input defined in action metadata file
   const token = getInput('package-token');
-  console.log(`Hello ${token}!`);
+  const octokit = new Octokit({
+    auth: `${token}`
+  })
+  
+  var a = await octokit.request('GET /user/packages', {});
+
+  console.log(`packages ${a}!`);
   
   const pack = getInput('package-name');
   console.log(`Hello ${pack}!`);
