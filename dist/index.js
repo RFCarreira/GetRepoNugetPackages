@@ -23,16 +23,20 @@ try {
     auth: `${token}`
   })
   
-  let { a } = await octokit.request('GET /user/packages', { package_type: "nuget"});
+  let { data  } = await octokit.request('GET /user/packages', { package_type: "nuget"});
 
-  console.log(`packages ${JSON.stringify(a, undefined, 3)}!`);
+  data.forEach((d) => 
+  {
+    console.log(`packages ${JSON.stringify(d, undefined, 2)}!`);
+  })
+
   
   const pack = (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('package-name');
   console.log(`Hello ${pack}!`);
   const names = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo;
-  (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput)("names", JSON.stringify(names, undefined, 3));
+  (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput)("names", JSON.stringify(names, undefined, 2));
 
-  const payload = JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload, undefined, 3)
+  const payload = JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`);
 
 
