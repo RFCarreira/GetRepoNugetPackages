@@ -9,10 +9,9 @@ try {
     auth: `${token}`
   })
   
-  const { data, sa  } = await octokit.request('GET /user/packages', { package_type: "nuget"});
+  const { data } = await octokit.request('GET /user/packages', { package_type: "nuget"});
 
   console.log(`packages ${JSON.stringify(data, undefined, 2)}!`);
-  console.log(`packages ${JSON.stringify(sa, undefined, 2)}!`);
 
   const pack = getInput('package-name');
   console.log(`Hello ${pack}!`);
