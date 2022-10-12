@@ -23,14 +23,11 @@ try {
     auth: `${token}`
   })
   
-  let { data  } = await octokit.request('GET /user/packages', { package_type: "nuget"});
+  const { data, sa  } = await octokit.request('GET /user/packages', { package_type: "nuget"});
 
-  data.forEach((d) => 
-  {
-    console.log(`packages ${JSON.stringify(d, undefined, 2)}!`);
-  })
+  console.log(`packages ${JSON.stringify(data, undefined, 2)}!`);
+  console.log(`packages ${JSON.stringify(sa, undefined, 2)}!`);
 
-  
   const pack = (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('package-name');
   console.log(`Hello ${pack}!`);
   const names = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo;

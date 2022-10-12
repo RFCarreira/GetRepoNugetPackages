@@ -1,6 +1,6 @@
-import { getInput, setOutput, setFailed, setSecret } from '@actions/core';
+import { getInput, setOutput, setFailed, setSecret, saveState } from '@actions/core';
 import { context } from '@actions/github';
-import { Octokit, App } from "octokit";
+import { Octokit } from "octokit";
 
 try {
   // `who-to-greet` input defined in action metadata file
@@ -9,14 +9,11 @@ try {
     auth: `${token}`
   })
   
-  let { data  } = await octokit.request('GET /user/packages', { package_type: "nuget"});
+  const { data, sa  } = await octokit.request('GET /user/packages', { package_type: "nuget"});
 
-  data.forEach((d) => 
-  {
-    console.log(`packages ${JSON.stringify(d, undefined, 2)}!`);
-  })
+  console.log(`packages ${JSON.stringify(data, undefined, 2)}!`);
+  console.log(`packages ${JSON.stringify(sa, undefined, 2)}!`);
 
-  
   const pack = getInput('package-name');
   console.log(`Hello ${pack}!`);
   const names = context.repo;
