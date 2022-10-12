@@ -9,7 +9,7 @@ try {
     auth: `${token}`
   })
   
-  var a = await octokit.request('GET /user/packages', {});
+  var a = await octokit.request('GET /user/packages?package_type=nuget', {});
 
   console.log(`packages ${a}!`);
   
