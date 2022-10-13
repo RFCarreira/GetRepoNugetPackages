@@ -9,13 +9,14 @@ try {
     auth: `${token}`
   })
 
-  const  data = await octokit.request('GET /user/packages', { package_type: "nuget"});
+  const  {data} = await octokit.request('GET /user/packages', { package_type: "nuget"});
+  
   const packagesNames = data.map(x => x.name)
 
   const payload = JSON.stringify(packagesNames, undefined, 2)
   console.log(`The event payload: ${payload}`);
 
-  setOutput("names", packagesNames);
+  setOutput("names", JSON.stringify(packagesNames, undefined, 2));
 
 } catch (error) {
   
