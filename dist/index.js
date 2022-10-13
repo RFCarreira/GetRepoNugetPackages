@@ -16,7 +16,7 @@ __nccwpck_require__.r(__webpack_exports__);
 try {
   // `who-to-greet` input defined in action metadata file
   const token = (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput)('package-token');
-  
+
   const octokit = new octokit__WEBPACK_IMPORTED_MODULE_1__/* .Octokit */ .vd({
     auth: `${token}`
   })
@@ -24,7 +24,10 @@ try {
   const  data = await octokit.request('GET /user/packages', { package_type: "nuget"});
   const packagesNames = data.map(x => x.name)
 
-  ;(0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput)("names", packagesNames);
+  const payload = JSON.stringify(packagesNames, undefined, 2)
+  console.log(`The event payload: ${payload}`);
+
+  (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput)("names", packagesNames);
 
 } catch (error) {
   
