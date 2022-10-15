@@ -1,0 +1,15 @@
+name: 'Get Packages'
+description: 'This action get the packages for the give repo'
+inputs:
+  package-name:  # id of input
+    description: 'Package name'
+    required: true
+  package-token:  # id of input
+    description: 'Token name'
+    required: true
+outputs:
+  names: # id of output
+    description: 'The names od the package'
+runs:
+  using: 'node16'
+  main: 'dist/getpackages/index.js'
