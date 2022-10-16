@@ -12,4 +12,4 @@ outputs:
     description: 'The names od the package'
 runs:
   using: 'node16'
-  main: 'dist/getpackageversion/index.js'
+  main: 'dist/index.js'
