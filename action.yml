@@ -1,15 +1,12 @@
 name: 'Get Packages'
-description: 'This action get the packages for the give repo'
+description: 'This action get the nuget packages for the give repo'
 inputs:
-  package-name:  # id of input
-    description: 'Package name'
-    required: true
-  package-token:  # id of input
-    description: 'Token name'
+  token:  # id of input
+    description: 'Github token'
     required: true
 outputs:
   names: # id of output
-    description: 'The names od the package'
+    description: 'An array of packages names'
 runs:
   using: 'node16'
   main: 'dist/index.js'
