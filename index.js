@@ -4,7 +4,7 @@ import { github } from "@actions/github"
 
 try {
   // `who-to-greet` input defined in action metadata file
-  const token = getInput('token');
+  const token = getInput('github-token');
 
   const octokit = new Octokit({
     auth: `${token}`
