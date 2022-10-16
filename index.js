@@ -1,6 +1,5 @@
 import { getInput, setOutput, setFailed } from '@actions/core';
 import { Octokit } from "octokit";
-import { github } from "@actions/github"
 
 try {
   // `who-to-greet` input defined in action metadata file
