@@ -17,9 +17,6 @@ try {
   
   const packagesNames = data.map(x => x.name)
 
-  const payload = JSON.stringify(packagesNames, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-
   setOutput("names", JSON.stringify(packagesNames, undefined, 2));
 
 } catch (error) {

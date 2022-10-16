@@ -32,10 +32,7 @@ try {
   
   const packagesNames = data.map(x => x.name)
 
-  const payload = JSON.stringify(packagesNames, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-
-  (0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput)("names", JSON.stringify(packagesNames, undefined, 2));
+  ;(0,_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput)("names", JSON.stringify(packagesNames, undefined, 2));
 
 } catch (error) {
   
