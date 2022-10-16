@@ -3,7 +3,7 @@ import { Octokit } from "octokit";
 
 try {
   // `who-to-greet` input defined in action metadata file
-  const token = getInput('github-token');
+  const token = getInput('package-token');
 
   const octokit = new Octokit({
     auth: `${token}`
